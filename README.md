@@ -2,7 +2,7 @@
 
 This is an introduction to embedPy in kdb+ 
 
-Two files, one written in Python and the other in q using embedPy are provided with each running an ML model on some sample data
+Two files, one written purely in Python and the other in q using embedPy are provided with each fitting the same ML model on some sample data
 
 The dataset provided is medical data obtained from a tribe of native Americans: https://www.kaggle.com/uciml/pima-indians-diabetes-database
 
