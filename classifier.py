@@ -7,24 +7,23 @@ from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-# load data
+# Load data
 dataset = np.loadtxt('C:/q/w64/pima-natives-diabetes.csv', delimiter=",")
 
-# split data into X and y
+# Split data into train and test sets, leave 33% of entries aside for testing
 X = dataset[:,0:8]
 y = dataset[:,8]
 
-# split data into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
 
-# fit model with training data
+# Fit model with training data
 model = XGBClassifier()
 model.fit(X_train, y_train)
 
-# make predictions for test data
+# Make predictions for test data
 y_pred = model.predict(X_test)
 predictions = [round(value) for value in y_pred]
 
-# evaluate predictions
+# Evaluate predictions
 accuracy = accuracy_score(y_test, predictions)
 print("Accuracy: {:.2f}%".format(accuracy * 100.0))
