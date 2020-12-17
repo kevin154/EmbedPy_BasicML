@@ -2,6 +2,7 @@
 // https://machinelearningmastery.com/develop-first-xgboost-model-python-scikit-learn/
 // https://www.kaggle.com/uciml/pima-indians-diabetes-database
 
+// Load embedPy
 if[not `p in key `;system "l p.q"]
 
 np:.p.import`numpy
@@ -31,7 +32,7 @@ dataset:flip ("IIIIIFFJH";",")0:`$":C:/q/w64/pima-natives-diabetes.csv"
 X:-1_'dataset
 y:dataset[;-1+count dataset[0]]
 
-// Split data into train and test sets
+// Split data into train and test sets, leave 33% of entries aside for testing 
 data:kdb2np each train_test_split[X;y;0.33]
 
 // Instantiate classifier object from class
