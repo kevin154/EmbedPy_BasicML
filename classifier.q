@@ -7,14 +7,20 @@ if[not `p in key `;system "l p.q"]
 np:.p.import`numpy
 xgbClassifier:.p.import[`xgboost;`:XGBClassifier]
 
+// Accuracy score from sklearn
 accuracy_score:.p.import[`sklearn.metrics;`:accuracy_score;<]
+
+// Alternative accuracy score in q
+accuracy_score_q:{sum[x=y]%count x}
+
+// sklearn train_test_split in q
 train_test_split:{[x;y;sz]`xtrain`ytrain`xtest`ytest!raze(x;y)@\:/:(0,floor n*1-sz)_neg[n]?n:count x}
 
 // Define rounding function in Python and map to kdb+
 p)def round(x): return "{:.2f}".format(x)
 round:.p.get[`round;<]
 
-// Convert kdb+ list to numpy array
+// Util for converting kdb+ list to numpy array
 kdb2np:{np[`:array][x]}
 
 
